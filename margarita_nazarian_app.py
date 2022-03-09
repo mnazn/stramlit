@@ -16,7 +16,7 @@ import statistics
 import pandas as pd
 import streamlit as st
 from PIL import Image
-import plotly.express as px
+#import plotly.express as px
 
 
 # Import data & files
@@ -103,44 +103,44 @@ def figures():
     st.subheader("Price distribution:")
 
 
-def histogram():
-    fig = px.histogram(table["Price"], nbins=(20))
+#def histogram():
+ #   fig = px.histogram(table["Price"], nbins=(20))
+#
+ #   my_value = sidebar_slider
+#
+ #   fig.update_layout(
+  #      showlegend=False,
+   #     plot_bgcolor="white",
+    #    margin=dict(t=10, l=10, b=10, r=10)
+    #)
+#
+ #   fig.update_traces(marker_color="darkseagreen")
+#
+ #   fig.update_layout(bargap=0.1)
+#
+ #   fig.update_layout(shapes=[
+  #      dict(
+   #         type="line",
+    #        yref="paper", y0=0, y1=1,
+     #       xref="x", x0=my_value, x1=my_value
+      #  )
+  #  ])
+#
+ #   fig.add_annotation(x=my_value,
+  #                     text="Your budget",
+   #                    showarrow=False,
+    #                   yshift=100,
+     #                  bordercolor="black",
+      #                 borderwidth=2,
+       #                borderpad=4,
+        #               bgcolor="whitesmoke",
+         #              font=dict(
+          #                 family="Courier New, monospace",
+           #                size=16,
+            #               color="black"
+             #          ))
 
-    my_value = sidebar_slider
-
-    fig.update_layout(
-        showlegend=False,
-        plot_bgcolor="white",
-        margin=dict(t=10, l=10, b=10, r=10)
-    )
-
-    fig.update_traces(marker_color="darkseagreen")
-
-    fig.update_layout(bargap=0.1)
-
-    fig.update_layout(shapes=[
-        dict(
-            type="line",
-            yref="paper", y0=0, y1=1,
-            xref="x", x0=my_value, x1=my_value
-        )
-    ])
-
-    fig.add_annotation(x=my_value,
-                       text="Your budget",
-                       showarrow=False,
-                       yshift=100,
-                       bordercolor="black",
-                       borderwidth=2,
-                       borderpad=4,
-                       bgcolor="whitesmoke",
-                       font=dict(
-                           family="Courier New, monospace",
-                           size=16,
-                           color="black"
-                       ))
-
-    st.plotly_chart(fig, use_container_width=True)
+  #  st.plotly_chart(fig, use_container_width=True)
 
 
 def bugdet_vs_market():
@@ -194,7 +194,7 @@ def main():
 
     with col1:
         figures()
-        histogram()
+        #histogram()
         bugdet_vs_market()
         st.markdown("---")
         source()
