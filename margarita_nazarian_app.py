@@ -21,18 +21,18 @@ from PIL import Image
 
 # Import data & files
 
-PATH = "/Users/margaritanazarian/Desktop/streamlit_app/"
+#PATH = "/Users/margaritanazarian/Desktop/streamlit_app/"
 
-data = pd.read_csv(PATH + "table.csv")
-data = data.iloc[:, 1:]
+#data = pd.read_csv(PATH + "table.csv")
+#data = data.iloc[:, 1:]
 
-dishwasher_image = Image.open(PATH + "dishwasher.png")
-oven_image = Image.open(PATH + "oven.png")
-fridge_image = Image.open(PATH + "fridge.png")
-microwave_image = Image.open(PATH + "microwave.png")
-hob_image = Image.open(PATH + "hob.png")
-line_image = Image.open(PATH + "line.png")
-logo = Image.open(PATH + "logo_but.png")
+#dishwasher_image = Image.open(PATH + "dishwasher.png")
+#oven_image = Image.open(PATH + "oven.png")
+#fridge_image = Image.open(PATH + "fridge.png")
+#microwave_image = Image.open(PATH + "microwave.png")
+#hob_image = Image.open(PATH + "hob.png")
+#line_image = Image.open(PATH + "line.png")
+#logo = Image.open(PATH + "logo_but.png")
 
 # Layout
 
@@ -47,21 +47,21 @@ st.set_page_config(
     page_title="Kitchen appliances: market prices")
 
 
-def main_image():
-    if sidebar_selectbox == "Dishwasher":
-        st.image(dishwasher_image)
+#def main_image():
+   # if sidebar_selectbox == "Dishwasher":
+  #      st.image(dishwasher_image)
+#
+  #  elif sidebar_selectbox == "Oven":
+ #       st.image(oven_image)
 
-    elif sidebar_selectbox == "Oven":
-        st.image(oven_image)
+ #   elif sidebar_selectbox == "Fridge":
+ #       st.image(fridge_image)
 
-    elif sidebar_selectbox == "Fridge":
-        st.image(fridge_image)
+ #   elif sidebar_selectbox == "Microwave":
+  #      st.image(microwave_image)
 
-    elif sidebar_selectbox == "Microwave":
-        st.image(microwave_image)
-
-    else:
-        st.image(hob_image)
+  #  else:
+    #    st.image(hob_image)
 
 
 # Sidebar
@@ -83,24 +83,24 @@ sidebar_slider = st.sidebar.slider(
 
 # Selected data
 
-table = data.loc[data["Category"] == sidebar_selectbox]
+#table = data.loc[data["Category"] == sidebar_selectbox]
 
 
-def figures():
-    average_price = ("%.2f" % statistics.mean(table["Price"]))
+#def figures():
+#    average_price = ("%.2f" % statistics.mean(table["Price"]))
+#
+ #   quantity = len(table["Price"])
+#
+ #   max_price = max(table["Price"])
+#
+ #   min_price = min(table["Price"])
 
-    quantity = len(table["Price"])
-
-    max_price = max(table["Price"])
-
-    min_price = min(table["Price"])
-
-    st.header(f"""Average market price: {average_price}€""")
-    st.subheader(f"""Maximum price: {max_price}€""")
-    st.subheader(f"""Minimum price: {min_price}€""")
-    st.subheader(f"""From the prices of {quantity} products""")
-    st.markdown("---")
-    st.subheader("Price distribution:")
+ #   st.header(f"""Average market price: {average_price}€""")
+  #  st.subheader(f"""Maximum price: {max_price}€""")
+  #  st.subheader(f"""Minimum price: {min_price}€""")
+  #  st.subheader(f"""From the prices of {quantity} products""")
+ #   st.markdown("---")
+ #   st.subheader("Price distribution:")
 
 
 #def histogram():
@@ -143,16 +143,16 @@ def figures():
   #  st.plotly_chart(fig, use_container_width=True)
 
 
-def bugdet_vs_market():
-    my_value = sidebar_slider
+#def bugdet_vs_market():
+ #   my_value = sidebar_slider
+#
+  #  under_budget = len([table["Price"]
+  #                     for row in table["Price"] if row < my_value])
+ #   budget_vs_market = (under_budget / (len(table["Price"]))) * 100
+  #  budget_vs_market = ("%.2f" % budget_vs_market)
 
-    under_budget = len([table["Price"]
-                       for row in table["Price"] if row < my_value])
-    budget_vs_market = (under_budget / (len(table["Price"]))) * 100
-    budget_vs_market = ("%.2f" % budget_vs_market)
-
-    st.markdown(
-        f"""***Your budget is higher than the price of {budget_vs_market} % of the products***""")
+  #  st.markdown(
+      #  f"""***Your budget is higher than the price of {budget_vs_market} % of the products***""")
 
 
 def source():
@@ -165,25 +165,25 @@ def source():
         unsafe_allow_html=True)
 
 
-def shop_now():
-    if sidebar_selectbox == "Dishwasher":
-        url = "https://www.but.fr/electromenager/lavage/tous-les-lave-vaisselle/index-c11201.html"
+#def shop_now():
+ #   if sidebar_selectbox == "Dishwasher":
+  #      url = "https://www.but.fr/electromenager/lavage/tous-les-lave-vaisselle/index-c11201.html"
 
-    elif sidebar_selectbox == "Oven":
-        url = "https://www.but.fr/electromenager/cuisson/four/index-c11167.html"
+   # elif sidebar_selectbox == "Oven":
+   #     url = "https://www.but.fr/electromenager/cuisson/four/index-c11167.html"
 
-    elif sidebar_selectbox == "Fridge":
-        url = "https://www.but.fr/electromenager/froid/tous-les-refrigerateurs/index-c11184.html"
+   # elif sidebar_selectbox == "Fridge":
+    #    url = "https://www.but.fr/electromenager/froid/tous-les-refrigerateurs/index-c11184.html"
 
-    elif sidebar_selectbox == "Microwave":
-        url = "https://www.but.fr/electromenager/cuisson/micro-ondes/index-c11168.html"
+   # elif sidebar_selectbox == "Microwave":
+    #    url = "https://www.but.fr/electromenager/cuisson/micro-ondes/index-c11168.html"
 
-    else:
-        url = "https://www.but.fr/electromenager/cuisson/plaque-de-cuisson/index-c11171.html"
+   # else:
+    #    url = "https://www.but.fr/electromenager/cuisson/plaque-de-cuisson/index-c11171.html"
 
-    if st.button(
-            "Press this button to get to the web page of the product you selected"):
-        webbrowser.open_new_tab(url)
+   # if st.button(
+      #      "Press this button to get to the web page of the product you selected"):
+      #  webbrowser.open_new_tab(url)
 
 
 def main():
@@ -193,21 +193,21 @@ def main():
     col1, col2 = st.columns([2, 1])
 
     with col1:
-        figures()
+        #figures()
         #histogram()
-        bugdet_vs_market()
+        #bugdet_vs_market()
         st.markdown("---")
         source()
         st.markdown("---")
-        shop_now()
+        #shop_now()
 
-    with col2:
-        main_image()
+    #with col2:
+      #  main_image()
 
     st.title("     ")
     st.title("     ")
 
-    st.image(line_image)
+    #st.image(line_image)
 
 
 if __name__ == "__main__":
