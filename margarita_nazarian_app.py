@@ -5,6 +5,7 @@ Created on Tue Mar  8 01:29:07 2022
 
 @author: margaritanazarian
 """
+$ pip uninstall plotly
 
 # streamlit run
 # /Users/margaritanazarian/Desktop/Cours/streamlit_app/margarita_nazarian_app.py
